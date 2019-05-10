@@ -1,6 +1,6 @@
 # coding-train
 
-A Quil sketch designed to ... well, that part is up to you.
+A Quil sketch designed to do 2d raycasting according to https://www.youtube.com/watch?v=TOEi6T2mtHo.
 
 ## Usage
 
