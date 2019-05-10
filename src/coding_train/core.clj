@@ -5,15 +5,22 @@
   (:require [coding-train.ray :as ray])
   (:require [coding-train.particle :as p]))
 
+(defn add-outer-walls [walls]
+  (conj walls
+    (b/create 0 0 (q/width) 0)
+    (b/create 0 (q/height) (q/width) (q/height))
+    (b/create 0 0 0 (q/height))
+    (b/create (q/width) 0 (q/width) (q/height))))
+
 (defn setup []
   ; Set frame rate to 30 frames per second.
   (q/frame-rate 30)
-  {:walls (map (fn [_] (b/create 
-                         (* (rand) (q/width)) 
-                         (* (rand) (q/width)) 
-                         (* (rand) (q/height)) 
-                         (* (rand) (q/height)))) 
-            (range 5))
+  {:walls (add-outer-walls (map (fn [_] (b/create 
+                                          (* (rand) (q/width)) 
+                                          (* (rand) (q/width)) 
+                                          (* (rand) (q/height)) 
+                                          (* (rand) (q/height)))) 
+                             (range 5)))
    :particle (p/create)
    :offset [0.0 10000.0]})
 

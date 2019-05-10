@@ -12,7 +12,7 @@
   (let [pos [(/ (q/width) 2) (/ (q/height) 2)]]
     (Particle. 
       pos
-      (map (partial gen-ray pos) (range 0 360 10)))))
+      (map (partial gen-ray pos) (range 0 360 2)))))
     
 (defn draw-ellipse [[x y] [w h]]
   (q/ellipse x y w h))
